@@ -1,4 +1,10 @@
-type IAllProducts = [];
+interface Idata {
+  isLoading: boolean;
+  products: IProduct;
+  error: string;
+}
+
+type AllProducts = [];
 
 interface IProduct {
   id?: number;
@@ -14,4 +20,4 @@ interface IRating {
   rate?: number;
 }
 
-export type { IAllProducts, IProduct };
+export type { AllProducts, IProduct, Idata };
