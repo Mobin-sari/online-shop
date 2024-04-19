@@ -7,4 +7,9 @@ const getData = async (page) => {
   return data;
 };
 
-export { getData };
+const getUsers = async () => {
+  const response = await axios.get("https://fakestoreapi.com/users");
+  return response;
+};
+
+export { getData, getUsers };

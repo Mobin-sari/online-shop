@@ -20,4 +20,12 @@ interface IRating {
   rate?: number;
 }
 
-export type { AllProducts, IProduct, Idata };
+interface IUsers {
+  id: number,
+  name: object,
+  password: string,
+  phone: number,
+  username: string,
+}
+
+export type { AllProducts, IProduct, Idata, IUsers };

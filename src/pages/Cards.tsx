@@ -9,7 +9,6 @@ import Limit from "../components/Limit";
 export default function Cards() {
   const [limit, setLimit] = useState(10);
   const data = useSelector((state: object) => state.products);
-  console.log(limit);
   const dispatch = useDispatch();
 
   useEffect(() => {
