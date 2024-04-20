@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getData } from "../../services/data";
+import { choseData } from "../../services/data";
 
 const initialState = {
   isLoading: false,
@@ -9,16 +9,15 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk(
   "productsList/getProducts",
-  async (page) => {
+  async (type, page, category) => {
     try {
-      const response = await getData(page);
+      const response = await choseData(type, page, category);
       return response.data;
     } catch (error) {
       console.error(error);
     }
   }
 );
-
 
 const productsSlice = createSlice({
   name: "products",

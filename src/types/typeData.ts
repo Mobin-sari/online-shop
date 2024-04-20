@@ -21,11 +21,11 @@ interface IRating {
 }
 
 interface IUsers {
-  id: number,
-  name: object,
-  password: string,
-  phone: number,
-  username: string,
+  id?: number,
+  name?: object,
+  password?: string,
+  phone?: number,
+  username?: string,
 }
 
 export type { AllProducts, IProduct, Idata, IUsers };

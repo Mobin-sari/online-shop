@@ -10,6 +10,7 @@ export default function Card({ product }: CardProps) {
     <>
       {product.products.map((p) => (
         <div className={styles.container} key={p.id}>
+          <h1>{p.id}</h1>
           <div>
             <img className={styles.image} src={p.image} alt={p.title} />
             <div>

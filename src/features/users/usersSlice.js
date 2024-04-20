@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getUsers } from "../../services/data";
+import { choseData } from "../../services/data";
 
 const initialState = {
   isLoading: false,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchUsers = createAsyncThunk("userssList/getUsers", async () => {
   try {
-    const response = await getUsers();
+    const response = await choseData();
     return response.data;
   } catch (error) {
     console.error(error);

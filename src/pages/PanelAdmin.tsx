@@ -8,19 +8,32 @@ type RequestStatus = {
 };
 
 type PropsPanelAdmin = RequestStatus & {
-  users: IUsers[];
+  users: IUsers | undefined;
 };
 
 export default function PanelAdmin({ users }: PropsPanelAdmin): JSX.Element {
-
+  const [login, setLogin] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const usersList = users.users;
+  const usersList = users?.users;
+
+  console.log({ userName, password });
 
   return (
     <>
-      <Login users={usersList} userName={userName} setUserName={set}/>
+      {login ? (
+        <h1>welcome {userName}</h1>
+      ) : (
+        <Login
+          users={usersList}
+          userName={userName}
+          setUserName={setUserName}
+          password={password}
+          setPassword={setPassword}
+          setLogin={setLogin}
+        />
+      )}
     </>
   );
 }

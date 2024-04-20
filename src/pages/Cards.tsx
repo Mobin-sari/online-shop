@@ -12,8 +12,9 @@ export default function Cards() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts(limit));
+    dispatch(fetchProducts("limit", limit));
   }, [limit]);
+  
   return (
     <>
       {data.isLoading && <h1>loading ...</h1>}
