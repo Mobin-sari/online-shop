@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Login from "../components/Login";
 import { IUsers } from "../types/typeData";
+import OptionPanel from "./OptionPanel";
 
 type RequestStatus = {
   isLoading: boolean;
@@ -11,7 +12,11 @@ type PropsPanelAdmin = RequestStatus & {
   users: IUsers | undefined;
 };
 
-export default function PanelAdmin({ users }: PropsPanelAdmin): JSX.Element {
+export default function PanelAdmin({
+  users,
+  deleteProduct,
+  setDeleteProduct,
+}: PropsPanelAdmin): JSX.Element {
   const [login, setLogin] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +28,12 @@ export default function PanelAdmin({ users }: PropsPanelAdmin): JSX.Element {
   return (
     <>
       {login ? (
-        <h1>welcome {userName}</h1>
+        <>
+          <OptionPanel
+            deleteProduct={deleteProduct}
+            setDeleteProduct={setDeleteProduct}
+          />
+        </>
       ) : (
         <Login
           users={usersList}

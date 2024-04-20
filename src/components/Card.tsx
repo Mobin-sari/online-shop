@@ -8,7 +8,7 @@ type CardProps = Idata | undefined;
 export default function Card({ product }: CardProps) {
   return (
     <>
-      {product.products.map((p) => (
+      {product.products?.map((p) => (
         <div className={styles.container} key={p.id}>
           <h1>{p.id}</h1>
           <div>

@@ -2,6 +2,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
 export default function Limit({ limit, setLimit }) {
+  
   const nextHandler = () => {
     if (limit === 20) return;
     setLimit(limit + 10);
@@ -10,6 +11,7 @@ export default function Limit({ limit, setLimit }) {
     if (limit === 10) return;
     setLimit(limit - 10);
   };
+
   return (
     <>
       {limit === 10 ? (

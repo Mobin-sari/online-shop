@@ -6,18 +6,18 @@ const initialState = {
   products: [],
   error: "",
 };
-
 export const fetchProducts = createAsyncThunk(
   "productsList/getProducts",
-  async (type, page, category) => {
+  async ({ type, p, updateData }) => {
     try {
-      const response = await choseData(type, page, category);
+      const response = await choseData(type, p, updateData);
       return response.data;
     } catch (error) {
       console.error(error);
     }
   }
 );
+
 
 const productsSlice = createSlice({
   name: "products",

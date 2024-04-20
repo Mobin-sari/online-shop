@@ -7,6 +7,4 @@ const compareUser = (users: IUsers, userName: string, password: string) => {
   return validName;
 };
 
-
-
 export { compareUser };
