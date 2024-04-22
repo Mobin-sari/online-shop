@@ -9,9 +9,9 @@ export default function Sidebar({ limit }) {
 
   const categoryHandler = (event) => {
     if (event.target.innerText.toLowerCase() === "all") {
-      return
+      return;
     }
-    console.log(event.target.innerText.toLowerCase())
+    console.log(event.target.innerText.toLowerCase());
     const selectedProduct = event.target.innerText.toLowerCase();
     setCategory(selectedProduct);
   };

@@ -8,10 +8,9 @@ import Card from "../components/Card";
 import Limit from "../components/Limit";
 
 export default function Cards({ limit, setLimit }) {
-
   const data = useSelector((state: object) => state.products);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchProducts({ type: "limit", p: limit }));
   }, [limit]);

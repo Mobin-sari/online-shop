@@ -11,6 +11,7 @@ export const fetchProducts = createAsyncThunk(
   async ({ type, p, updateData }) => {
     try {
       const response = await choseData(type, p, updateData);
+      console.log(response);
       return response.data;
     } catch (error) {
       console.error(error);

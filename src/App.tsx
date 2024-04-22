@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
 import PanelAdmin from "./pages/PanelAdmin";
@@ -15,14 +15,15 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [limit, deleteProduct]);
+  }, [limit]);
 
   return (
     <>
       <Layout>
         <Routes>
+          <Route index element={<Navigate to="/shop" replace />} />
           <Route
-            path="/paneladmin"
+            path="paneladmin/*"
             element={
               <PanelAdmin
                 users={usersList}
@@ -32,7 +33,7 @@ function App() {
             }
           />
           <Route
-            index
+            path="/shop"
             element={<MainPage limit={limit} setLimit={setLimit} />}
           />
         </Routes>

@@ -19,7 +19,7 @@ export default function DeleteProduct({ deleteProduct, setDeleteProduct }) {
     if (deleteProduct > 0 && deleteProduct < 21) {
       toast.success("items deleted");
     } else {
-        toast.warning("ID is between 1, 20");
+      toast.warning("ID is between 1, 20");
     }
   };
 

@@ -29,21 +29,24 @@ const choseData = (type, data, updateData) => {
         {
           method: "DELETE",
         }
-      );
+      )
       return response;
     };
     return deleteProduct(data);
   }
   // update products
   else if (type === "update") {
-    const updateProduct = async ({data, updateData}) => {
-      const response = await fetch(`https://fakestoreapi.com/products/${data}`, {
-        method: "PUT",
-        body: JSON.stringify(updateData),
-      });
+    const updateProduct = async ({ data, updateData }) => {
+      const response = await fetch(
+        `https://fakestoreapi.com/products/${data}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(updateData),
+        }
+      );
       return response;
     };
-    return updateProduct({data, updateData});
+    return updateProduct({ data, updateData });
   }
   // get users
   else {
