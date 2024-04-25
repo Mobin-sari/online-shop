@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-
-import { useForm, Controller, SubmitHandler } from "react-hook-form";
-
+import { useForm, SubmitHandler } from "react-hook-form";
 import { fetchProducts } from "../features/api/apiSlice";
 
 interface IInputUpdate {
@@ -14,18 +11,19 @@ interface IInputUpdate {
 }
 
 export default function UpdateHandler() {
-  const [id, setID] = useState(0)
-  const [updateData, setUpdateData] = useState({
+  const [id, setID] = useState(0);
+  const [updateData, setUpdateData] = useState<IInputUpdate>({
+    id: 0,
     title: "",
     price: 0,
     description: "",
   });
-console.log({updateData});
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IInputUpdate>({
     defaultValues: {
       id: 1,
       title: "",
@@ -41,9 +39,7 @@ console.log({updateData});
   const dispatch = useDispatch();
 
   const updateHandler = () => {
-    dispatch(
-      fetchProducts({ type: "update", p: id, updataData: updateData })
-    );
+    dispatch(fetchProducts({ type: "update", p: id, updataData: updateData }));
   };
 
   return (
@@ -57,7 +53,7 @@ console.log({updateData});
               value={id}
               type="number"
               {...register("id", { min: 1, max: 20 })}
-              onChange={(event) => setID(event.target.value)}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setID(Number(event.target.value))}
             />
             {errors.id && <p>id between 1 - 20</p>}
           </div>
@@ -71,7 +67,7 @@ console.log({updateData});
                 maxLength: 20,
                 minLength: 5,
               })}
-              onChange={(event) => setUpdateData(event.target.value)}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, title: event.target.value }))}
             />
             {errors.title && <p>title has been 1 - 20 words</p>}
           </div>
@@ -81,7 +77,7 @@ console.log({updateData});
               type="number"
               value={updateData.price}
               {...register("price", { min: 1, max: 2000 })}
-              onChange={(event) => setUpdateData(event.target.value)}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, price: Number(event.target.value) }))}
             />
             {errors.price && <p>Price invalid</p>}
           </div>
@@ -95,15 +91,13 @@ console.log({updateData});
                 maxLength: 40,
                 minLength: 5,
               })}
-              onChange={(event) => setUpdateData(event.target.value)}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, description: event.target.value }))}
             />
             {errors.description && <p>description has been 5 - 40 words</p>}
           </div>
-          <button onClick={updateHandler}>update</button>
+          <button type="submit" onClick={updateHandler}>update</button>
         </form>
       </div>
     </>
   );
 }
-
-

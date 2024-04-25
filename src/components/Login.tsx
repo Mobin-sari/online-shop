@@ -1,20 +1,31 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+
 import { compareUser } from "../helper/helper";
+
 import { Link } from "react-router-dom";
+
+interface Props {
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  users: [];
+  userName: string;
+  password: string;
+}
 
 interface InputData {
   userName: string;
   password: string;
 }
 
-export default function Login({
+const Login: React.FC<Props> = ({
   setUserName,
   setPassword,
+  setLogin,
   users,
   userName,
   password,
-  setLogin,
-}) {
+}) => {
   const { handleSubmit } = useForm<InputData>();
   const onSubmit: SubmitHandler<InputData> = () => {
     if (compareUser(users, userName, password)) {
@@ -49,3 +60,5 @@ export default function Login({
     </>
   );
 }
+
+export default Login;

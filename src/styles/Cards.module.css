@@ -1,0 +1,13 @@
+.loader {
+    width: 85px;
+    margin: auto;
+    margin-top: 60px;
+}
+.cards {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-right: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

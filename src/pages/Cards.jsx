@@ -4,11 +4,14 @@ import { fetchProducts } from "../features/api/apiSlice";
 
 import { useEffect } from "react";
 
+import styles from "../styles/Cards.module.css";
+
+import Loader from "../components/Loader";
 import Card from "../components/Card";
 import Limit from "../components/Limit";
 
 export default function Cards({ limit, setLimit }) {
-  const data = useSelector((state: object) => state.products);
+  const data = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,8 +20,10 @@ export default function Cards({ limit, setLimit }) {
 
   return (
     <>
-      {data.isLoading && <h1>loading ...</h1>}
-      <Card product={data} />
+      <div className={styles.loader}>{data.isLoading && <Loader />}</div>
+      <div className={styles.cards}>
+        <Card product={data} />
+      </div>
       <Limit limit={limit} setLimit={setLimit} />
     </>
   );

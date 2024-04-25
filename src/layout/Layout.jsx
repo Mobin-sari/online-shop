@@ -1,11 +1,7 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-type LayoutProps<T> = {
-  children: T;
-};
-
-function Layout<T>({ children }: LayoutProps<T>) {
+function Layout({ children }) {
   return (
     <>
       <Header />
