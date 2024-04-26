@@ -2,33 +2,52 @@ import styles from "../styles/Card.module.css";
 
 import { Link } from "react-router-dom";
 
-import { CiHeart } from "react-icons/ci";
-import { IoIosArrowDropupCircle } from "react-icons/io";
+import { shorterDes, shorterName } from "../helper/helper";
+
+import { FaHeart } from "react-icons/fa";
+import { FaSquarePlus } from "react-icons/fa6";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
-import { shorterName } from "../helper/helper";
 
 export default function Card({ product }) {
   return (
     <>
-      {product.products?.map((p) => (
+      {product?.products?.map((p) => (
         <div className={styles.container} key={p.id}>
           <div>
             <img className={styles.image} src={p.image} alt={p.title} />
             <div>
               <div>
-                <p >{shorterName(p.title)}</p>
-                <CiHeart />
+                <p>{shorterName(p.title)}</p>
+                <span>
+                  <FaHeart color="#000" fontSize="1rem" cursor="pointer" />
+                </span>
               </div>
             </div>
-            <div>
-              <span>${p.price}</span>
+            <div className={styles.boxDes}>
+              <p>{shorterDes(p.description)}</p>
             </div>
-            <div>
-              <Link to={`/shop/${p.id}`}>
-                <CgDetailsMore />
-              </Link>
+            <div className={styles.boxPrice}>
+              <span>${p.price}</span>
+              <p>
+                <FaSquarePlus
+                  color="#0a369d"
+                  fontSize="1.5rem"
+                  cursor="pointer"
+                />
+              </p>
+            </div>
+            <div className={styles.detail}>
+              <p>
+                <Link to={`/shop/${p.id}`}>
+                  <CgDetailsMore
+                    color="#0a369d"
+                    fontSize="1.5rem"
+                    cursor="pointer"
+                  />
+                </Link>
+              </p>
             </div>
           </div>
         </div>

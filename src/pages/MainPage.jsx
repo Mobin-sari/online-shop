@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-
 import Cards from "./Cards";
 import Sidebar from "../components/Sidebar";
 
+import styles from "../styles/MainPage.module.css";
+
 function MainPage({ limit, setLimit }) {
-  
   return (
     <>
+      <img src="/bag.jpg" alt="bag" className={styles.image} />
+      <div className={styles.container}>
       <Sidebar limit={limit} />
-      <h1 className="text-2xl">main page</h1>
-      <Cards  limit={limit} setLimit={setLimit}/>
-      <Link to="/paneladmin">panel Admin</Link>
+        <Cards limit={limit} setLimit={setLimit} />
+      </div>
     </>
   );
 }

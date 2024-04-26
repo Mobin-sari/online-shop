@@ -1,11 +1,14 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+
 import Layout from "./layout/Layout";
 import MainPage from "./pages/MainPage";
 import PanelAdmin from "./pages/PanelAdmin";
+import DetailCard from "./components/DetailCard";
+
 import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "./features/users/usersSlice";
-import DetailCard from "./components/DetailCard";
 import { fetchProducts } from "./features/api/apiSlice";
 
 function App() {
@@ -13,7 +16,9 @@ function App() {
   const [limit, setLimit] = useState(10);
 
   const usersList = useSelector((state) => state.users);
-  const productList = useSelector((state) => state.products);
+
+  const { isLoading, products } = useSelector((state) => state.products);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,11 +43,17 @@ function App() {
           />
           <Route
             path="/shop"
-            element={<MainPage limit={limit} setLimit={setLimit} />}
+            element={
+              <MainPage
+                limit={limit}
+                setLimit={setLimit}
+                isLoading={isLoading}
+              />
+            }
           />
           <Route
             path="/shop/:id"
-            element={<DetailCard productList={productList} />}
+            element={<DetailCard productList={products} />}
           />
         </Routes>
       </Layout>

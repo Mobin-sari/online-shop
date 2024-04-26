@@ -16,8 +16,13 @@ const sumQuntity = (products) => {
 };
 
 const shorterName = (name) => {
-  const newName = name.split(" ").slice(0, 2);
+  const newName = name.split(" ").slice(0, 2).join(" ");
   return newName;
 };
 
-export { compareUser, sumPrice, sumQuntity, shorterName };
+const shorterDes = (des) => {
+  const newDes = des.split(" ").slice(0, 5).join(" ");
+  return newDes;
+};
+
+export { compareUser, sumPrice, sumQuntity, shorterName, shorterDes };

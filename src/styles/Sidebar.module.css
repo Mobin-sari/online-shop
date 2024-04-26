@@ -1,0 +1,24 @@
+.sidebar {
+  width: 50%;
+  margin: auto;
+}
+.svg {
+  width: 45px;
+  height: 45px;
+}
+
+.sidebar div ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar div ul li {
+  font-size: 0.9rem;
+  color: #717171;
+  margin-left: 45px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}

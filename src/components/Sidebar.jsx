@@ -1,7 +1,13 @@
-import { useDispatch } from "react-redux";
-import { categories } from "../constants/list";
-import { fetchProducts } from "../features/api/apiSlice";
+import React from "react";
 import { useEffect, useState } from "react";
+
+import { useDispatch } from "react-redux";
+
+import { categories } from "../constants/list";
+
+import { fetchProducts } from "../features/api/apiSlice";
+
+import styles from "../styles/Sidebar.module.css";
 
 export default function Sidebar({ limit }) {
   const [category, setCategory] = useState("all");
@@ -25,13 +31,21 @@ export default function Sidebar({ limit }) {
 
   return (
     <>
-      <div>
-        <h1>sidebar</h1>
-        <ul onClick={categoryHandler}>
-          {categories.map((e) => (
-            <li key={e.id}>{e.type}</li>
-          ))}
-        </ul>
+      <div className={styles.sidebar}>
+        <div>
+          <ul onClick={categoryHandler}>
+            {categories.map((e) => (
+              <React.Fragment key={e.id}>
+                <li key={e.id}>
+                  {e.type}
+                  <p>
+                    <img className={styles.svg} src={`/${e.type}.svg`} />
+                  </p>
+                </li>
+              </React.Fragment>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

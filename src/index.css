@@ -4,9 +4,9 @@
 
 :root {
   --primary-color: "#0a369d";
-  --background-color: "ede7e3";
+  --background-color: "#ede7e3";
   --error-color: "#ff0022";
   --success-color: "#00916e";
-  --secondary-color: "dc602e";
+  --secondary-color: "#dc602e";
   --info-color: "#3f0ea6"
 }

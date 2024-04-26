@@ -20,11 +20,13 @@ export default function Cards({ limit, setLimit }) {
 
   return (
     <>
-      <div className={styles.loader}>{data.isLoading && <Loader />}</div>
+      <div className={styles.limit}>
+        <p>{limit === 10 ? "Show more" : "Show less"}</p>
+        <Limit limit={limit} setLimit={setLimit} />
+      </div>
       <div className={styles.cards}>
         <Card product={data} />
       </div>
-      <Limit limit={limit} setLimit={setLimit} />
     </>
   );
 }

@@ -1,13 +1,28 @@
 .loader {
-    width: 85px;
-    margin: auto;
-    margin-top: 60px;
+  width: 85px;
+  margin-left: 100%;
+  margin-top: 60px;
 }
 .cards {
-    display: flex;
-    width: 90%;
-    margin: auto;
-    margin-right: 30px;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-right: 30px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.limit {
+  border: 2px dashed #0a369d;
+  padding: 5px;
+  border-radius: 5px;
+  width: 150px;
+  margin-left: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.limit p {
+    font-weight: 600;
 }

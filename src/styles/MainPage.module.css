@@ -1,0 +1,11 @@
+.image {
+  width: 100%;
+  height: 700px;
+  object-fit: fill;
+  margin-bottom: 15px;
+}
+.container {
+  top: 90%;
+  display: flex;
+  flex-direction: column;
+}
