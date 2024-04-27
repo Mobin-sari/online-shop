@@ -12,7 +12,7 @@ import { fetchUsers } from "./features/users/usersSlice";
 import { fetchProducts } from "./features/api/apiSlice";
 
 function App() {
-  const [deleteProduct, setDeleteProduct] = useState(0);
+  const [deleteProduct, setDeleteProduct] = useState();
   const [limit, setLimit] = useState(10);
 
   const usersList = useSelector((state) => state.users);

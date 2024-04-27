@@ -51,8 +51,8 @@ const choseData = (type, data, updateData) => {
   // get users
   else {
     const getUsers = async () => {
-      const response = await axios.get(`https://fakestoreapi.com/users`);
-      return response;
+      const responseUsers = await axios.get(`https://fakestoreapi.com/users`);
+      return responseUsers;
     };
     return getUsers();
   }

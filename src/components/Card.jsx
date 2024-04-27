@@ -11,6 +11,7 @@ import { FaTrash } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
 
 export default function Card({ product }) {
+  console.log(product);
   return (
     <>
       {product?.products?.map((p) => (

@@ -1,7 +1,12 @@
 import { useState } from "react";
+
 import { useDispatch } from "react-redux";
+
 import { useForm, SubmitHandler } from "react-hook-form";
+
 import { fetchProducts } from "../features/api/apiSlice";
+
+import styles from "../styles/UpdateProduct.module.css";
 
 interface IInputUpdate {
   id: number;
@@ -32,20 +37,18 @@ export default function UpdateHandler() {
     },
   });
 
-  const onSubmit: SubmitHandler<IInputUpdate> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IInputUpdate> = () => {
+    dispatch(fetchProducts({ type: "update", p: id, updataData: updateData }));
   };
 
   const dispatch = useDispatch();
 
-  const updateHandler = () => {
-    dispatch(fetchProducts({ type: "update", p: id, updataData: updateData }));
-  };
+  const updateHandler = () => {};
 
   return (
     <>
-      <h1>update handler</h1>
-      <div>
+      <div className={styles.update}>
+        <h1 className={styles.title}>UPDATE PANEL</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label>ID</label>
@@ -53,12 +56,15 @@ export default function UpdateHandler() {
               value={id}
               type="number"
               {...register("id", { min: 1, max: 20 })}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setID(Number(event.target.value))}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setID(Number(event.target.value))
+              }
             />
-            {errors.id && <p>id between 1 - 20</p>}
+            {errors.id?.type === "max" && <p>ID must be less than 20</p>}
+            {errors.id?.type === "min" && <p>ID must be more than 1</p>}
           </div>
           <div>
-            <label>title</label>
+            <label>Title</label>
             <input
               type="text"
               value={updateData.title}
@@ -67,22 +73,46 @@ export default function UpdateHandler() {
                 maxLength: 20,
                 minLength: 5,
               })}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, title: event.target.value }))}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setUpdateData((prevData) => ({
+                  ...prevData,
+                  title: event.target.value,
+                }))
+              }
             />
-            {errors.title && <p>title has been 1 - 20 words</p>}
+            {errors.title?.type === "required" && (
+              <p>The title must be entered</p>
+            )}
+            {errors.title?.type === "maxLength" && (
+              <p>Title must be less than 20 characters</p>
+            )}
+            {errors.title?.type === "minlength" && (
+              <p>Title must be more than 5 characters</p>
+            )}
           </div>
           <div>
-            <label>price</label>
+            <label>Price</label>
             <input
               type="number"
               value={updateData.price}
-              {...register("price", { min: 1, max: 2000 })}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, price: Number(event.target.value) }))}
+              {...register("price", { required: true, min: 1, max: 2000 })}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setUpdateData((prevData) => ({
+                  ...prevData,
+                  price: Number(event.target.value),
+                }))
+              }
             />
-            {errors.price && <p>Price invalid</p>}
+            {errors.price?.type === "required" && (
+              <p>The price must be entered</p>
+            )}
+            {errors.price?.type === "min" && <p>Price must be more than $1</p>}
+            {errors.price?.type === "max" && (
+              <p>Price must be less than $2000</p>
+            )}
           </div>
           <div>
-            <label>description</label>
+            <label>Description</label>
             <input
               type="text"
               value={updateData.description}
@@ -91,11 +121,26 @@ export default function UpdateHandler() {
                 maxLength: 40,
                 minLength: 5,
               })}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => setUpdateData(prevData => ({ ...prevData, description: event.target.value }))}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setUpdateData((prevData) => ({
+                  ...prevData,
+                  description: event.target.value,
+                }))
+              }
             />
-            {errors.description && <p>description has been 5 - 40 words</p>}
+            {errors.description?.type === "required" && (
+              <p>The description must be entered</p>
+            )}
+            {errors.description?.type === "maxLength" && (
+              <p>Description must be less than 40 characters</p>
+            )}
+            {errors.description?.type === "minLength" && (
+              <p>Description must be more than 5 characters</p>
+            )}
           </div>
-          <button type="submit" onClick={updateHandler}>update</button>
+          <button type="submit" onClick={updateHandler}>
+            Update
+          </button>
         </form>
       </div>
     </>

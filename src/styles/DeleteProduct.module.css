@@ -1,0 +1,65 @@
+.delete {
+  width: 400px;
+  height: 600px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  background-color: #d2d2d23b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete div {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.delete input {
+  width: 200px;
+  color: #000;
+  height: 30px;
+  border-radius: 5px;
+  padding: 15px 5px;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.boxButton {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.boxButton button:first-child {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+  background-color: #0a369d;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.boxButton button:last-child {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  background-color: #3f0ea6;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}

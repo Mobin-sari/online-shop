@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
+import styles from "../styles/DeleteProduct.module.css";
+
 export default function DeleteProduct({ deleteProduct, setDeleteProduct }) {
   const dispatch = useDispatch();
 
@@ -24,20 +26,24 @@ export default function DeleteProduct({ deleteProduct, setDeleteProduct }) {
   };
 
   return (
-    <>
-      <h1>delete product</h1>
+    <div className={styles.delete}>
       <div>
-        <label htmlFor="id">write your id of products</label>
+        <label htmlFor="id">Write ID of products</label>
         <input
           type="number"
           id="id"
+          placeholder="delete item"
           value={deleteProduct}
           onChange={(e) => setDeleteProduct(e.target.value)}
         />
-        <button onClick={deleteHandler}>delete item</button>
-        <Link to="/">home</Link>
-        <ToastContainer />
       </div>
-    </>
+      <div className={styles.boxButton}>
+        <button onClick={deleteHandler}>Delete item</button>
+        <button>
+          <Link to="/">Shop</Link>
+        </button>
+      </div>
+      <ToastContainer />
+    </div>
   );
 }
