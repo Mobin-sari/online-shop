@@ -7,7 +7,7 @@ export default function PanelAdmin({
   deleteProduct,
   setDeleteProduct,
 }){
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(false);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 

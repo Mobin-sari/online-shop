@@ -27,21 +27,19 @@ export default function DeleteProduct({ deleteProduct, setDeleteProduct }) {
 
   return (
     <div className={styles.delete}>
+      <h1>DELETE PANEL</h1>
       <div>
         <label htmlFor="id">Write ID of products</label>
         <input
           type="number"
           id="id"
-          placeholder="delete item"
+          placeholder="id item"
           value={deleteProduct}
           onChange={(e) => setDeleteProduct(e.target.value)}
         />
       </div>
       <div className={styles.boxButton}>
         <button onClick={deleteHandler}>Delete item</button>
-        <button>
-          <Link to="/">Shop</Link>
-        </button>
       </div>
       <ToastContainer />
     </div>

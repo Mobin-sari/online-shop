@@ -52,19 +52,37 @@
 }
 
 .boxPrice {
+  width: 250px;
+  margin: auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.boxPrice span {
+.boxPrice div span {
   margin-top: 10px;
   margin-left: 10px;
   font-size: 1.5rem;
   font-weight: 700;
 }
+
 .boxPrice p {
-  margin-top: 17px;
+  display: flex;
+  margin-top: 10px;
   margin-right: 15px;
+}
+
+.boxPrice p button {
+  margin: 0 8px;
+}
+
+.boxPrice p span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 0 7px;
+  background-color: #0a369d;
+  border-radius: 15px;
 }
 
 .detail p {

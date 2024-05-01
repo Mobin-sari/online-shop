@@ -11,9 +11,8 @@ import Card from "../components/Card";
 import Limit from "../components/Limit";
 
 export default function Cards({ limit, setLimit }) {
-  const data = useSelector((state) => state.products);
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchProducts({ type: "limit", p: limit }));
   }, [limit]);
@@ -25,7 +24,9 @@ export default function Cards({ limit, setLimit }) {
         <Limit limit={limit} setLimit={setLimit} />
       </div>
       <div className={styles.cards}>
-        <Card product={data} />
+        {products?.map((p) => (
+          <Card key={p.id} product={p} />
+        ))}
       </div>
     </>
   );

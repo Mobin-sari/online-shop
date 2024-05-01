@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 export default function DetailCard({ productList }) {
   const { id } = useParams();
 
-  const products = productList.products;
+  const products = productList;
 
   const productDetail = useProductsDetails(products, +id);
   console.log(productDetail);
@@ -17,7 +17,6 @@ export default function DetailCard({ productList }) {
 }
 
 const useProductsDetails = (product, id) => {
-  const products = product;
-  const result = products?.find((product) => product.id == id);
+  const result = product?.find((product) => product.id == id);
   return result;
 };

@@ -14,14 +14,25 @@
   display: flex;
 }
 
+.container div:last-child button {
+    position: absolute;
+}
+
 .container div:last-child span {
-    margin-top: 2px;
-    color: #0a369d;
+  font-size: 0.85rem;
+  font-weight: 700;
+  position: relative;
+  color: #fff;
+  border-radius: 15px;
+  padding: 1px 6px;
+  background-color: rgba(220, 96, 46, 0.9);
+  left: 16px;
+  top: 11px;
 }
 
 .container div:last-child div p {
     margin-right: 10px;
-    margin-left: 15px;
+    margin-left: 22px;
     font-weight: 600;
 }
 

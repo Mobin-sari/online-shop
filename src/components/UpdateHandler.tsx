@@ -54,6 +54,7 @@ export default function UpdateHandler() {
             <label>ID</label>
             <input
               value={id}
+              placeholder="id item"
               type="number"
               {...register("id", { min: 1, max: 20 })}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
@@ -67,6 +68,7 @@ export default function UpdateHandler() {
             <label>Title</label>
             <input
               type="text"
+              placeholder="title item"
               value={updateData.title}
               {...register("title", {
                 required: true,
@@ -94,6 +96,7 @@ export default function UpdateHandler() {
             <label>Price</label>
             <input
               type="number"
+              placeholder="price item"
               value={updateData.price}
               {...register("price", { required: true, min: 1, max: 2000 })}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
@@ -115,6 +118,7 @@ export default function UpdateHandler() {
             <label>Description</label>
             <input
               type="text"
+              placeholder="description item"
               value={updateData.description}
               {...register("description", {
                 required: true,
