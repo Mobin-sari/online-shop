@@ -5,6 +5,7 @@ const initialState = {
   selectedItems: [],
   itemCounter: 0,
   total: 0,
+  favorites: [],
   checkout: false,
 };
 
@@ -50,9 +51,27 @@ const cartSlice = createSlice({
       state.total = 0;
       state.checkout = true;
     },
+    addFavorites: (state, action) => {
+      if (!state.favorites.find((i) => i.id === action.payload.id)) {
+        state.favorites.push({ ...action.payload, quantity: 1 });
+      }
+    },
+    removeFavorites: (state, action) => {
+      const newFavorites = state.favorites.filter(
+        (i) => i.id !== action.payload.id
+      );
+      state.favorites = newFavorites;
+    },
   },
 });
 
 export default cartSlice.reducer;
-export const { addItem, removeItem, increase, decrease, checkout } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  increase,
+  decrease,
+  checkout,
+  addFavorites,
+  removeFavorites,
+} = cartSlice.actions;

@@ -1,0 +1,42 @@
+.comment {
+  width: 100%;
+  background-color: #3f0ea6;
+  margin-top: 50px;
+}
+.swiper {
+  margin: 100px auto;
+  width: 600px;
+  height: 400px;
+}
+
+.swiperslide {
+  background-color: #33127d;
+  color: #fff;
+  display: flex;
+}
+
+.swiperslide img {
+    width: 300px;
+    height: 450px;
+    object-fit: fill;
+}
+
+.swiperslide div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.swiperslide p:first-child {
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.swiperslide p:last-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: left;
+}
