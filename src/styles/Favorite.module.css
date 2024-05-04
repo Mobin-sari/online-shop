@@ -1,0 +1,79 @@
+.favorites {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+}
+
+.box {
+  max-height: 150px;
+  width: 200px;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  background-color: #0a369d;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  animation: favorite-in 300ms ease-in;
+}
+
+.favorites img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.listFavorite {
+  display: flex;
+  margin-bottom: 10px;
+  box-shadow: rgba(59, 149, 251, 0.893) 0px 0px 0px 1.5px;
+  border-radius: 5px;
+}
+
+.listFavorite div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  margin-left: 10px;
+  color: #fff;
+  
+}
+
+.listFavorite div p {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.listFavorite div span {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lastBox {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a369d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #33127d;
+}
+
+@keyframes favorite-in {
+  from {
+    height: 0;
+  }
+  to {
+    height: 150px;
+  }
+}

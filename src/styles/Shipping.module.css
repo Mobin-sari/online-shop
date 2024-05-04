@@ -1,0 +1,94 @@
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.shipping {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.shipping h1 {
+  font-size: 2rem;
+  color: #3f0ea6;
+  display: flex;
+  font-weight: 700;
+}
+
+.shipping h1 span {
+  margin: 10px 15px 0 0;
+}
+
+.shipping p {
+  width: 90%;
+  margin: 15px auto;
+  color: #0a369d;
+  font-weight: 600;
+  padding: 30px 15px;
+  border-radius: 10px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.delivery {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.delivery div {
+  margin: 20px;
+  width: 215px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.delivery div h3 {
+  color: #0a369d;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.delivery div p {
+  color: #424141;
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-top: 45px;
+}
+
+.order h2 {
+  font-size: 1.8rem;
+  color: #3f0ea6;
+  display: flex;
+  font-weight: 700;
+}
+
+.order h2 span {
+  margin: 10px 15px 0 0;
+}
+
+.order p {
+  width: 90%;
+  margin: 15px auto;
+  color: #0a369d;
+  font-weight: 600;
+  padding: 30px 15px;
+  border-radius: 10px;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}

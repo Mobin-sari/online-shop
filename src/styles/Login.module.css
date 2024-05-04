@@ -1,7 +1,13 @@
+.blur {
+  filter: blur(3px);
+  opacity: 0.8;
+}
+
 .form {
   width: 100%;
   margin: auto;
-  height: 90%;
+  margin-top: 50px;
+  height: 100%;
 }
 
 .container {
@@ -85,6 +91,6 @@
     opacity: 0; /* از جای اولیه */
   }
   to {
-    opacity: 100;; /* به جایی که می‌خواهید */
+    opacity: 100; /* به جایی که می‌خواهید */
   }
 }

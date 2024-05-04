@@ -1,6 +1,7 @@
 .sidebar {
   width: 50%;
   margin: auto;
+  margin-top: 45px;
 }
 .svg {
   width: 45px;
@@ -21,4 +22,5 @@
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }

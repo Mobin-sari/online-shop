@@ -8,5 +8,31 @@
   --error-color: "#ff0022";
   --success-color: "#00916e";
   --secondary-color: "#dc602e";
-  --info-color: "#3f0ea6"
+  --info-color: "#3f0ea6";
+}
+
+body {
+  --sb-track-color: #ffffff;
+  --sb-thumb-color: #33127d;
+  --sb-size: 6px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 2px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
 }

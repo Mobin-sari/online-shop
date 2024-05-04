@@ -1,0 +1,51 @@
+.container {
+  width: 70%;
+  height: 78vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.detailCard {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+
+.detailCard img {
+  width: 400px;
+  height: 450px;
+}
+
+.title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 50px 10px;
+  color: #33127d;
+}
+
+.desc {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 50px 10px;
+  color: #545454;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 50px 10px;
+  color: #000;
+}
+
+.delivery {
+  margin: 0 0 0 10px;
+}
+
+.delivery p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0a369d;
+}

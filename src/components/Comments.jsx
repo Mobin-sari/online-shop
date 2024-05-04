@@ -32,7 +32,7 @@ export default function Comments() {
         className={styles.swiper}
       >
         {comments.map((c) => (
-          <SwiperSlide className={styles.swiperslide}>
+          <SwiperSlide key={c.id} className={styles.swiperslide}>
             <img src={`${c.images}`} alt={c.name} />
             <div>
               <p>{c.comment}</p>

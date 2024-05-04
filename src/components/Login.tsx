@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 
-import { compareUser } from "../helper/helper";
 
 import { Link } from "react-router-dom";
 
@@ -9,6 +8,8 @@ import styles from "../styles/Login.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { compareUser } from "../helper/helper";
+
 interface Props {
   setUserName: React.Dispatch<React.SetStateAction<string>>;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
@@ -16,6 +17,7 @@ interface Props {
   users: [];
   userName: string;
   password: string;
+  isCart: boolean;
 }
 
 interface InputData {
@@ -30,6 +32,7 @@ const Login: React.FC<Props> = ({
   users,
   userName,
   password,
+  isCart
 }) => {
   const {
     register,
@@ -50,7 +53,7 @@ const Login: React.FC<Props> = ({
   };
 
   return (
-    <>
+    <div className={isCart && styles.blur}>
       <ToastContainer />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.container}>
@@ -108,7 +111,7 @@ const Login: React.FC<Props> = ({
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

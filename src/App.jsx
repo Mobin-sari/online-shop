@@ -13,6 +13,7 @@ import { fetchProducts } from "./features/api/apiSlice";
 
 function App() {
   const [deleteProduct, setDeleteProduct] = useState();
+  const [isCart, setIsCart] = useState(false);
   const [limit, setLimit] = useState(10);
 
   const usersList = useSelector((state) => state.users);
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <>
-      <Layout>
+      <Layout setIsCart={setIsCart}>
         <Routes>
           <Route index element={<Navigate to="/shop" replace />} />
           <Route
@@ -38,6 +39,7 @@ function App() {
                 users={usersList}
                 deleteProduct={deleteProduct}
                 setDeleteProduct={setDeleteProduct}
+                isCart={isCart}
               />
             }
           />
@@ -48,6 +50,7 @@ function App() {
                 limit={limit}
                 setLimit={setLimit}
                 isLoading={isLoading}
+                isCart={isCart}
               />
             }
           />

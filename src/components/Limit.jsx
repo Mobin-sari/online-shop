@@ -15,11 +15,11 @@ export default function Limit({ limit, setLimit }) {
     <>
       {limit === 10 ? (
         <div onClick={nextHandler}>
-          <IoIosArrowDown fontSize="1.3rem" color="#0a369d" />
+          <IoIosArrowDown cursor="pointer" fontSize="1.3rem" color="#0a369d" />
         </div>
       ) : (
         <div onClick={downHandler}>
-          <IoIosArrowUp fontSize="1.3rem" color="#0a369d"/>
+          <IoIosArrowUp cursor="pointer" fontSize="1.3rem" color="#0a369d"/>
         </div>
       )}
     </>

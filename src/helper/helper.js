@@ -16,7 +16,7 @@ const sumQuntity = (products) => {
 };
 
 const shorterName = (name) => {
-  const newName = name.split(" ").slice(0, 2).join(" ");
+  const newName = name?.split(" ").slice(0, 2).join(" ");
   return newName;
 };
 

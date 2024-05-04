@@ -7,10 +7,16 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { productQuantity, shorterName } from "../helper/helper";
 
-function Header() {
+function Header({ setIsCart }) {
   const [basket, setBasket] = useState(false);
 
   const counter = useSelector((store) => store.cart);
+
+  const handleBasket =() => {
+    setBasket(true)
+    setIsCart(true)
+  }
+
   return (
     <>
       <div className={styles.container}>
@@ -22,7 +28,6 @@ function Header() {
                 <Link to="/shop">Shop</Link>
               </li>
               <li>About us</li>
-              <li>Comments</li>
               <li>
                 <Link to="/paneladmin">Panel admin</Link>
               </li>
@@ -34,7 +39,7 @@ function Header() {
             <FaShoppingCart
               fontSize="1.5rem"
               color="#0a369d"
-              onClick={() => setBasket(true)}
+              onClick={handleBasket}
             />
           </button>
           <span>{counter.itemCounter}</span>
@@ -44,12 +49,14 @@ function Header() {
           </div>
         </div>
       </div>
-      {basket && <Basket setBasket={setBasket} />}
+      {basket && <Basket setIsCart={setIsCart} setBasket={setBasket} />}
     </>
   );
 }
 
-const Basket = ({ setBasket }) => {
+import stylesBasket from "../styles/Basket.module.css";
+
+const Basket = ({ setBasket, setIsCart }) => {
   const selectProduct = useSelector((store) => store.cart);
 
   useLayoutEffect(() => {
@@ -62,27 +69,39 @@ const Basket = ({ setBasket }) => {
     };
   }, []);
 
+  const handleBasket = () => {
+    setBasket(false);
+    setIsCart(false)
+  };
+
   return (
     <>
-      <div className={styles.basket_in}>
-        <div className={styles.headerBasket}>
+      <div className={stylesBasket.basket_in}>
+        <div className={stylesBasket.headerBasket}>
           <h1>Your Cart</h1>
-          <button onClick={() => setBasket(false)}>X</button>
+          <button onClick={handleBasket}>X</button>
         </div>
-        <div>
+        <div className={stylesBasket.listProduct}>
           {selectProduct?.selectedItems.map((p) => (
-            <div className={styles.product}>
-              <img src={p.image} />
+            <div className={stylesBasket.product}>
+              <img src={p.image} alt={p.title} />
               <div>
                 <div>
-                  <p>{shorterName(p.title)}</p>
-                  <p>{p.price}</p>
+                  <p className={stylesBasket.title}>{shorterName(p.title)}</p>
+                  <p className={stylesBasket.price}>${p.price}</p>
                 </div>
-                <div>{productQuantity(selectProduct, p.id)}</div>
+                <div className={stylesBasket.quantity}>
+                  {productQuantity(selectProduct, p.id)}
+                </div>
               </div>
-              <div className={styles.border}></div>
             </div>
           ))}
+        </div>
+        <div className={stylesBasket.boxCheck}>
+          <p className={stylesBasket.total}>
+            TOTAL : <span>${selectProduct.total}</span>
+          </p>
+          <button>Continue to check out</button>
         </div>
       </div>
     </>

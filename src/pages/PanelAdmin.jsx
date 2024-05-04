@@ -6,6 +6,7 @@ export default function PanelAdmin({
   users,
   deleteProduct,
   setDeleteProduct,
+  isCart
 }){
   const [login, setLogin] = useState(false);
   const [userName, setUserName] = useState("");
@@ -22,6 +23,7 @@ console.log(usersList);
           <OptionPanel
             deleteProduct={deleteProduct}
             setDeleteProduct={setDeleteProduct}
+            isCart={isCart}
           />
         </>
       ) : (
@@ -32,6 +34,7 @@ console.log(usersList);
           password={password}
           setPassword={setPassword}
           setLogin={setLogin}
+          isCart={isCart}
         />
       )}
     </>
