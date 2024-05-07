@@ -1,6 +1,13 @@
 import axios from "axios";
 
 const choseData = (type, data, updateData) => {
+  if (type === "All") {
+    const allData = async () => {
+      const data = await axios.get("https://fakestoreapi.com/products");
+      return data;
+    };
+    return allData;
+  }
   // limit product
   if (type === "limit") {
     const getData = async (data) => {
@@ -29,7 +36,7 @@ const choseData = (type, data, updateData) => {
         {
           method: "DELETE",
         }
-      )
+      );
       return response;
     };
     return deleteProduct(data);

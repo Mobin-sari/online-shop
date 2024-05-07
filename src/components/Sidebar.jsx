@@ -12,12 +12,9 @@ import styles from "../styles/Sidebar.module.css";
 export default function Sidebar({ limit }) {
   const [category, setCategory] = useState("all");
   const dispatch = useDispatch();
-
+console.log(limit);
   const categoryHandler = (event) => {
-    if (event.target.innerText.toLowerCase() === "all") {
-      return;
-    }
-    console.log(event.target.innerText.toLowerCase());
+    console.log(event.target.innerText);
     const selectedProduct = event.target.innerText.toLowerCase();
     setCategory(selectedProduct);
   };
@@ -25,9 +22,9 @@ export default function Sidebar({ limit }) {
   useEffect(() => {
     dispatch(fetchProducts({ type: "category", p: category }));
     if (category === "all") {
-      dispatch(fetchProducts({ type: "limit", p: limit }));
+      dispatch(fetchProducts({ type: "limit", p:limit }));
     }
-  }, [category]);
+  }, [category, limit]);
 
   return (
     <>

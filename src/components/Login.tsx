@@ -8,7 +8,7 @@ import styles from "../styles/Login.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { compareUser } from "../helper/helper";
+import {compareUser } from "../helper/helper"
 
 interface Props {
   setUserName: React.Dispatch<React.SetStateAction<string>>;
@@ -53,7 +53,7 @@ const Login: React.FC<Props> = ({
   };
 
   return (
-    <div className={isCart && styles.blur}>
+    <div className={`${isCart && styles.blur}`}>
       <ToastContainer />
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.container}>

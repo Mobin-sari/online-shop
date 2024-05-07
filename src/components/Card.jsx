@@ -27,7 +27,6 @@ export default function Card({ product }) {
   const [favorite, setFavorite] = useState(true);
 
   const { id, image, title, description, price } = product;
-console.log(id);
   const counter = useSelector((store) => store.cart);
   const dispatch = useDispatch();
   const quantity = productQuantity(counter, id);

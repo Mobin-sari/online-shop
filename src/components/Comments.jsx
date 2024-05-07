@@ -7,7 +7,7 @@ import { EffectCreative } from "swiper/modules";
 
 import styles from "../styles/comment.module.css";
 
-import { comments } from "../json/comments";
+import { comments } from "../commentsData/comments";
 
 export default function Comments() {
   return (

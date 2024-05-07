@@ -24,7 +24,6 @@ function MainPage({ limit, setLimit, isCart }) {
       setIsFavorite(true);
     }
   };
-
   return (
     <div className={isCart && styles.blur}>
       <img src="/bag.jpg" alt="bag" className={styles.image} />
@@ -38,7 +37,7 @@ function MainPage({ limit, setLimit, isCart }) {
           <button onClick={favoriteHandler}>
             <img src="/favorite.svg" alt="favorite" />
           </button>
-          {isFavorite && (
+          {isFavorite && !favorite.favorites.length == 0 && (
             <div className={stylesFav.box}>
               {favorite.favorites.map((f) => (
                 <div className={stylesFav.listFavorite} key={f.id}>
